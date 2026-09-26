@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Daybloom</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app">
+
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="28" height="28">
+            <circle cx="20" cy="20" r="6" fill="#F2C14E"/>
+            <g fill="#E8935F">
+              <ellipse cx="20" cy="8"  rx="5" ry="8"/>
+              <ellipse cx="20" cy="32" rx="5" ry="8"/>
+              <ellipse cx="8"  cy="20" rx="8" ry="5"/>
+              <ellipse cx="32" cy="20" rx="8" ry="5"/>
+            </g>
+          </svg>
+        </span>
+        <h1>Daybloom</h1>
+      </div>
+
+      <nav class="day-switch" aria-label="Choose a day to plan">
+        <button class="day-btn" data-offset="0">Today</button>
+        <button class="day-btn" data-offset="1">Tomorrow</button>
+        <input type="date" id="customDate" class="day-input" aria-label="Pick a date" />
+      </nav>
+    </header>
+
+    <main class="layout">
+
+      <section class="planner" aria-label="Task planner">
+        <div class="planner-head">
+          <h2 id="plannerDateLabel">Today's plan</h2>
+          <p class="progress-text" id="progressText">No tasks yet</p>
+          <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        </div>
+
+        <form class="add-form" id="addForm">
+          <input type="text" id="taskTitle" placeholder="What needs doing?" maxlength="80" required />
+          <div class="add-form-row">
+            <input type="time" id="taskTime" />
+            <select id="taskCategory">
+              <option value="work">Work</option>
+              <option value="health">Health</option>
+              <option value="personal">Personal</option>
+              <option value="study">Study</option>
+              <option value="other">Other</option>
+            </select>
+            <button type="submit" class="add-btn">Add</button>
+          </div>
+        </form>
+
+        <ul class="task-list" id="taskList"></ul>
+        <p class="empty-hint" id="emptyHint">Nothing planned yet. Add your first task above.</p>
+      </section>
+
+      <section class="garden-panel" aria-label="Your garden">
+        <div class="garden-head">
+          <h2>The garden</h2>
+          <p class="garden-sub" id="gardenSub">Finish a task to plant your first flower.</p>
+        </div>
+        <div class="garden-scene">
+          <div class="sky"></div>
+          <div class="bed" id="flowerBed"></div>
+          <div class="ground"></div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
