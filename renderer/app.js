@@ -1,10 +1,13 @@
 (() => {
   const CATEGORIES = {
-    work:     { label: 'Work',     color: 'var(--work)',     hex: '#E8935F', flower: 'marigold' },
-    health:   { label: 'Health',   color: 'var(--health)',   hex: '#D65B7A', flower: 'cosmos'   },
-    personal: { label: 'Personal', color: 'var(--personal)', hex: '#7B9FE0', flower: 'bluebell' },
-    study:    { label: 'Study',    color: 'var(--study)',    hex: '#B98FD1', flower: 'lavender' },
-    other:    { label: 'Other',    color: 'var(--other)',    hex: '#F2C14E', flower: 'daisy'    }
+    work:     { label: 'Work',     color: 'var(--work)',     hex: '#E8935F', flower: 'marigold'  },
+    health:   { label: 'Health',   color: 'var(--health)',   hex: '#D65B7A', flower: 'cosmos'    },
+    personal: { label: 'Personal', color: 'var(--personal)', hex: '#7B9FE0', flower: 'bluebell'  },
+    study:    { label: 'Study',    color: 'var(--study)',    hex: '#B98FD1', flower: 'lavender'  },
+    home:     { label: 'Home',     color: 'var(--home)',     hex: '#E2686F', flower: 'tulip'     },
+    creative: { label: 'Creative', color: 'var(--creative)', hex: '#D2432E', flower: 'poppy'     },
+    social:   { label: 'Social',   color: 'var(--social)',   hex: '#F5B942', flower: 'sunflower' },
+    other:    { label: 'Other',    color: 'var(--other)',    hex: '#F2C14E', flower: 'daisy'     }
   };
 
   let state = { tasks: [] };
@@ -78,6 +81,31 @@
       case 'lavender':
         head = `<g class="sway-part">
           ${Array.from({ length: 6 }).map((_, i) => `<circle cx="${19 + (i % 2) * 8}" cy="${14 + i * 6}" r="4.5" fill="${hex}"/>`).join('')}
+        </g>`;
+        break;
+      case 'tulip':
+        head = `<g class="sway-part">
+          <path d="M23 12 Q13 17 13 30 Q23 25 23 12 Z" fill="${hex}" opacity="0.9"/>
+          <path d="M23 10 L23 32" stroke="${hex}" stroke-width="10" stroke-linecap="round"/>
+          <path d="M23 12 Q33 17 33 30 Q23 25 23 12 Z" fill="${hex}" opacity="0.9"/>
+        </g>`;
+        break;
+      case 'poppy':
+        head = `<g class="sway-part">
+          <circle cx="14" cy="27" r="10" fill="${hex}"/>
+          <circle cx="32" cy="27" r="10" fill="${hex}"/>
+          <circle cx="23" cy="16" r="10" fill="${hex}"/>
+          <circle cx="23" cy="35" r="10" fill="${hex}" opacity="0.92"/>
+          <circle cx="23" cy="27" r="6" fill="#2B2118"/>
+        </g>`;
+        break;
+      case 'sunflower':
+        head = `<g class="sway-part">
+          ${Array.from({ length: 12 }).map((_, i) => {
+            const angle = i * 30;
+            return `<ellipse cx="23" cy="34" rx="5" ry="14" fill="${hex}" transform="rotate(${angle} 23 34)"/>`;
+          }).join('')}
+          <circle cx="23" cy="34" r="9" fill="#6B4A2E"/>
         </g>`;
         break;
       case 'daisy':

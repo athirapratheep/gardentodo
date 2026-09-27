@@ -44,12 +44,15 @@
         <form class="add-form" id="addForm">
           <input type="text" id="taskTitle" placeholder="What needs doing?" maxlength="80" required />
           <div class="add-form-row">
-            <input type="time" id="taskTime" />
+            <input type="time" id="taskTime" title="Optional — leave blank for no reminder" />
             <select id="taskCategory">
               <option value="work">Work</option>
               <option value="health">Health</option>
               <option value="personal">Personal</option>
               <option value="study">Study</option>
+              <option value="home">Home</option>
+              <option value="creative">Creative</option>
+              <option value="social">Social</option>
               <option value="other">Other</option>
             </select>
             <button type="submit" class="add-btn">Add</button>
